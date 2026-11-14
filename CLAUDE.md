@@ -77,7 +77,7 @@ Tipografia: Spectral (texto e títulos), Public Sans (navegação, datas, metada
 
 ## Pendências
 
-1. Completar DOIs faltantes em `data/publications.yaml` (ICUAS 2025 e LARS 2024 "Supervised models...") e adicionar PDFs quando permitido.
+1. Adicionar PDFs das publicações em `static/files/` quando permitido.
 2. `content/cv.md`: preencher estágio atual e revisar lista de skills.
 3. Revisar a bio em `content/_index.md`.
 4. Rascunhos em `content/notes/quartz-oscillator.md` e `content/projects/gps-signal-simulation.md` (este último é só exemplo de estrutura, com capa de exemplo em `assets/img/covers/gps-l1-psd.png`, gerada sinteticamente).

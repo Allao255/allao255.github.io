@@ -4,12 +4,13 @@
 
 - key: allao2025systematic
   title: "A Systematic Review of GPS Spoofing: Methods, Tools, Tests, and Techniques in the State of the Art"
-  authors: ["Daniel Allão", "Isadora Garcia Ferrão", "Vitor Marçal", "Kalinka Castelo Branco"]
+  authors: ["Daniel Allão", "Isadora Garcia Ferrão", "Vitor Marçal", "Lucas Gonzalez da Silva", "Kalinka Castelo Branco"]
   venue: "International Conference on Unmanned Aircraft Systems (ICUAS)"
   publisher: "IEEE"
   year: 2025
+  pages: "1019-1026"
   type: inproceedings
-  doi: ""
+  doi: "10.1109/ICUAS65942.2025.11007862"
   pdf: ""
 
 - key: marcal2024bladerf
@@ -31,5 +32,5 @@
   year: 2024
   pages: "1-6"
   type: inproceedings
-  doi: ""
+  doi: "10.1109/LARS64411.2024.10786404"
   pdf: ""
