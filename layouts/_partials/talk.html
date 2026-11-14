@@ -1,0 +1,15 @@
+{{/* Renderiza uma entrada de data/talks.yaml. */}}
+{{ $t := . }}
+{{/* Campos em português opcionais no bloco "pt:" da entrada sobrescrevem os em inglês. */}}
+{{ with index . site.Language.Lang }}{{ if reflect.IsMap . }}{{ $t = merge $t . }}{{ end }}{{ end }}
+<li class="talk">
+  <p class="talk-title">{{ with $t.url }}<a href="{{ . }}">{{ $t.title }}</a>{{ else }}{{ $t.title }}{{ end }}</p>
+  <p class="talk-meta">{{ $t.kind }}, {{ $t.event }}, {{ $t.year }}</p>
+  {{ with $t.description }}<p class="talk-desc">{{ . }}</p>{{ end }}
+  {{ if or $t.slides $t.video }}
+  <p class="pub-links">
+    {{ with $t.slides }}<a href="{{ . | relURL }}">{{ i18n "slides" }}</a>{{ end }}
+    {{ with $t.video }}<a href="{{ . }}">{{ i18n "video" }}</a>{{ end }}
+  </p>
+  {{ end }}
+</li>

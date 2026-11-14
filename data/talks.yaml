@@ -1,0 +1,42 @@
+# Palestras, minicursos e workshops. O mais recente primeiro.
+# kind: Talk, Minicourse, Workshop.
+# Campos opcionais: description, slides (caminho em static/files/ ou URL), video, url (página do evento).
+# Bloco "pt:" opcional: campos em português que substituem os em inglês na versão /pt/ do site.
+
+- title: "Who Controls the Sky? (Quem Controla o Céu?)"
+  kind: "Talk"
+  event: "CryptoRave 2026"
+  place: "São Paulo, Brazil"
+  year: "2026"
+  description: "GNSS signal fundamentals, the structural limits of unauthenticated civil signals, and how spoofing and jamming exploit them, from drone interference to critical civilian infrastructure."
+  slides: ""
+  video: ""
+  pt:
+    kind: "Palestra"
+    place: "São Paulo, Brasil"
+    description: "Fundamentos de sinais GNSS, os limites estruturais dos sinais civis sem autenticação e como spoofing e jamming exploram esses limites, da interferência em drones à infraestrutura civil crítica."
+
+- title: "Guitar Pedal Design: Electronics in Practice"
+  kind: "Workshop"
+  event: "SIEEL 2025, Electrical Engineering Week, USP"
+  place: "São Carlos, Brazil"
+  year: "2025"
+  description: ""
+  slides: ""
+  pt:
+    title: "Projeto de Pedais de Guitarra: Eletrônica na Prática"
+    kind: "Workshop"
+    event: "SIEEL 2025, Semana de Engenharia Elétrica, USP"
+
+- title: "RF and Wireless Security: SDR, GNSS, Wi-Fi, RFID"
+  kind: "Minicourse series"
+  event: "SEMATRON 2024, 2025 and 2026 (Mechatronics Week, USP); SIEEL 2024 (Electrical Engineering Week, USP)"
+  place: "São Carlos, Brazil"
+  year: "2024–2026"
+  description: "Annual hands-on series on drone cybersecurity, SDRs, Wi-Fi security testing, RFID, GNSS spoofing and RF attack simulation in controlled environments."
+  slides: ""
+  pt:
+    title: "Segurança em RF e Wireless: SDR, GNSS, Wi-Fi, RFID"
+    kind: "Série de minicursos"
+    event: "SEMATRON 2024, 2025 e 2026 (Semana da Mecatrônica, USP); SIEEL 2024 (Semana de Engenharia Elétrica, USP)"
+    description: "Série prática anual sobre cibersegurança de drones, SDR, testes de segurança em Wi-Fi, RFID, spoofing de GNSS e simulação de ataques de RF em ambiente controlado."

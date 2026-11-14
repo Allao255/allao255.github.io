@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header class="page-head">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+</header>
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+{{ with partial "section-pages.html" (dict "sections" (slice .Section)) }}
+  {{ partial "entry-list.html" . }}
+{{ else }}
+  <p class="empty">{{ i18n "empty" }}</p>
+{{ end }}
+{{ end }}

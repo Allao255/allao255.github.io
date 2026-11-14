@@ -1,0 +1,20 @@
+{{/*
+  Retorna as páginas regulares das seções pedidas, na língua atual,
+  mais as páginas das outras línguas que não têm tradução na língua atual.
+  Assim um post escrito só em inglês aparece no site em português (e vice-versa),
+  marcado como "em inglês" na listagem.
+  Recebe: dict "sections" (slice de nomes de seção).
+*/}}
+{{ $lang := site.Language.Lang }}
+{{ $pages := slice }}
+{{ range hugo.Sites }}
+  {{ $isCurrent := eq .Language.Lang $lang }}
+  {{ range where .RegularPages "Section" "in" $.sections }}
+    {{ if $isCurrent }}
+      {{ $pages = $pages | append . }}
+    {{ else if not (where .Translations "Lang" $lang) }}
+      {{ $pages = $pages | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return sort $pages "Date" "desc" }}

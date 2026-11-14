@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article>
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ if and (in (slice "notes" "projects") .Section) (not .Date.IsZero) }}
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format (i18n "dateLong") .Date }}</time>
+      {{ with .Params.tags }}<span class="tags">{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ (printf "tags/%s/" ($t | urlize)) | relLangURL }}">{{ $t }}</a>{{ end }}</span>{{ end }}
+      {{ if .Draft }}<span class="draft">{{ i18n "draft" }}</span>{{ end }}
+    </p>
+    {{ end }}
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ with .Params.pdf }}{{ if fileExists (path.Join "static" .) }}<p class="cv-pdf"><a href="{{ . | absURL }}">{{ i18n "downloadPDF" }}</a></p>{{ end }}{{ end }}
+  </header>
+  {{ if in (slice "notes" "projects") .Section }}
+  {{ with partial "cover.html" . }}
+    {{ $c := .Resize "1360x" }}
+    <figure class="cover"><img src="{{ $c.RelPermalink }}" width="{{ div $c.Width 2 }}" height="{{ div $c.Height 2 }}" alt="{{ with $.Params.coverAlt }}{{ . }}{{ end }}"></figure>
+  {{ end }}
+  {{ end }}
+  <div class="prose{{ with .Params.class }} {{ . }}{{ end }}">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

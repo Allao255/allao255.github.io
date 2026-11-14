@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="intro">
+  {{ with resources.Get "img/profile.jpeg" }}
+    {{ $img := .Fill "320x320 Center" }}
+    <img class="portrait" src="{{ $img.RelPermalink }}" width="160" height="160" alt="Daniel Allão">
+  {{ end }}
+  <div class="intro-text">
+    <h1>Daniel Allão</h1>
+    <p class="lede">{{ .Params.lede }}</p>
+  </div>
+</section>
+
+<div class="prose">
+  {{ .Content }}
+</div>
+
+<p class="contact">
+  <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+  <a href="{{ site.Params.github }}">GitHub</a>
+  <a href="{{ site.Params.linkedin }}">LinkedIn</a>
+  <a href="{{ "cv/" | relLangURL }}">{{ with site.GetPage "/cv" }}{{ .LinkTitle }}{{ end }}</a>
+</p>
+
+<section class="block" id="publications">
+  <h2>{{ i18n "publications" }}</h2>
+  <ol class="pubs">
+    {{ range hugo.Data.publications }}{{ partial "publication.html" . }}{{ end }}
+  </ol>
+</section>
+
+<section class="block" id="talks">
+  <h2>{{ i18n "talks" }}</h2>
+  <ul class="talks">
+    {{ range hugo.Data.talks }}{{ partial "talk.html" . }}{{ end }}
+  </ul>
+</section>
+
+{{ $writing := partial "section-pages.html" (dict "sections" (slice "notes" "projects")) }}
+{{ with first 5 $writing }}
+<section class="block" id="writing">
+  <h2>{{ i18n "recentWriting" }}</h2>
+  {{ partial "entry-list.html" . }}
+</section>
+{{ end }}
+{{ end }}

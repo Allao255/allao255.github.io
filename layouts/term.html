@@ -1,0 +1,4 @@
+{{ define "main" }}
+<header class="page-head"><h1>{{ i18n "taggedWith" (dict "Tag" .Title) }}</h1></header>
+{{ partial "entry-list.html" .Pages.ByDate.Reverse }}
+{{ end }}

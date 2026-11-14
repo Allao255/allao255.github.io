@@ -1,0 +1,35 @@
+# Lista de publicações. A mais recente primeiro.
+# Campos opcionais: doi, pdf (caminho em static/files/), url, note.
+# O nome "Daniel Allão" é destacado automaticamente na lista de autores.
+
+- key: allao2025systematic
+  title: "A Systematic Review of GPS Spoofing: Methods, Tools, Tests, and Techniques in the State of the Art"
+  authors: ["Daniel Allão", "Isadora Garcia Ferrão", "Vitor Marçal", "Kalinka Castelo Branco"]
+  venue: "International Conference on Unmanned Aircraft Systems (ICUAS)"
+  publisher: "IEEE"
+  year: 2025
+  type: inproceedings
+  doi: ""
+  pdf: ""
+
+- key: marcal2024bladerf
+  title: "Performance Evaluation of BladeRF and HackRF SDRs in Security Tests for GPS Systems"
+  authors: ["Vitor Marçal", "Isadora Garcia Ferrão", "Daniel Allão", "Lucas Gonzalez da Silva", "Kalinka Castelo Branco"]
+  venue: "Latin American Robotics Symposium (LARS)"
+  publisher: "IEEE"
+  year: 2024
+  pages: "1-6"
+  type: inproceedings
+  doi: "10.1109/LARS64411.2024.10786454"
+  pdf: ""
+
+- key: ferrao2024supervised
+  title: "Supervised Models for Detecting GPS Attacks and Faults in UAVs: A Comparative Analysis"
+  authors: ["Isadora Garcia Ferrão", "André Luíz de Oliveira", "Vitor Marçal", "Daniel Allão", "David Espes", "Catherine Dezan", "Kalinka Castelo Branco"]
+  venue: "Latin American Robotics Symposium (LARS)"
+  publisher: "IEEE"
+  year: 2024
+  pages: "1-6"
+  type: inproceedings
+  doi: ""
+  pdf: ""

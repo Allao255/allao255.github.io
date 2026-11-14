@@ -1,0 +1,4 @@
+{{/* Uso em Markdown: {{< publications >}} */}}
+<ol class="pubs">
+  {{ range hugo.Data.publications }}{{ partial "publication.html" . }}{{ end }}
+</ol>

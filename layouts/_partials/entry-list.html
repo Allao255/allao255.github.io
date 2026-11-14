@@ -1,0 +1,22 @@
+{{/* Lista de páginas com data, resumo curto e miniatura opcional. Recebe uma coleção de páginas. */}}
+<ul class="entries">
+  {{ range . }}
+  {{ $page := . }}
+  {{ $cover := partial "cover.html" . }}
+  <li{{ if $cover }} class="has-thumb"{{ end }}>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format (i18n "dateList") .Date }}</time>
+    <div class="entry-text">
+      <a href="{{ .RelPermalink }}"{{ if ne .Language.Lang site.Language.Lang }} hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}"{{ end }}>{{ .Title }}</a>
+      {{- if ne .Language.Lang site.Language.Lang }} <span class="lang-tag">{{ i18n "otherLanguage" }}</span>{{ end }}
+      {{- if .Draft }} <span class="draft">{{ i18n "draft" }}</span>{{ end }}
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </div>
+    {{ with $cover }}
+      {{ $t := .Fill "288x192 Center" }}
+      <a class="thumb" href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ $t.RelPermalink }}" width="144" height="96" alt="" loading="lazy">
+      </a>
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>

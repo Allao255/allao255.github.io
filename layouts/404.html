@@ -1,0 +1,7 @@
+{{ define "main" }}
+<header class="page-head">
+  <h1>{{ i18n "notFoundTitle" }}</h1>
+  <p class="lede">{{ i18n "notFoundText" }}</p>
+</header>
+<p><a href="{{ "/" | relLangURL }}">{{ i18n "goHome" }}</a></p>
+{{ end }}

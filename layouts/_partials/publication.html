@@ -1,0 +1,28 @@
+{{/* Renderiza uma publicação de data/publications.yaml. Recebe o mapa da entrada. */}}
+{{ $p := . }}
+<li class="pub" id="{{ $p.key }}">
+  <p class="pub-title">{{ with $p.url }}<a href="{{ . }}">{{ $p.title }}</a>{{ else }}{{ with $p.doi }}<a href="https://doi.org/{{ . }}">{{ $p.title }}</a>{{ else }}{{ $p.title }}{{ end }}{{ end }}</p>
+  <p class="pub-authors">
+    {{- range $i, $a := $p.authors -}}
+      {{- if $i }}, {{ end -}}
+      {{- if eq $a "Daniel Allão" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end -}}
+    {{- end -}}
+  </p>
+  <p class="pub-venue"><em>{{ $p.venue }}</em>, {{ $p.publisher }}, {{ $p.year }}{{ with $p.note }}. {{ . }}{{ end }}</p>
+  <div class="pub-links">
+    {{ with $p.doi }}<a href="https://doi.org/{{ . }}">DOI</a>{{ end }}
+    {{ with $p.pdf }}<a href="{{ . | relURL }}">PDF</a>{{ end }}
+    <details>
+      <summary>BibTeX</summary>
+<pre><code>@{{ $p.type | default "inproceedings" }}{ {{- $p.key }},
+  title     = { {{- $p.title -}} },
+  author    = { {{- delimit $p.authors " and " -}} },
+  booktitle = { {{- $p.year }} {{ $p.venue -}} },
+  publisher = { {{- $p.publisher -}} },
+  year      = { {{- $p.year -}} }{{ with $p.pages }},
+  pages     = { {{- . -}} }{{ end }}{{ with $p.doi }},
+  doi       = { {{- . -}} }{{ end }}
+}</code></pre>
+    </details>
+  </div>
+</li>

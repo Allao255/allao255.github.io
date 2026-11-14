@@ -1,0 +1,4 @@
+{{/* Uso em Markdown: {{< talks >}} */}}
+<ul class="talks">
+  {{ range hugo.Data.talks }}{{ partial "talk.html" . }}{{ end }}
+</ul>

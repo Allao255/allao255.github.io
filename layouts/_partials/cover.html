@@ -1,0 +1,13 @@
+{{/*
+  Retorna a imagem de capa de uma página, ou nada.
+  Ordem de busca:
+    1. recurso do page bundle chamado cover.* (content/projects/x/cover.jpg)
+    2. caminho em assets/ indicado no front matter: cover: "img/covers/x.png"
+*/}}
+{{ $img := "" }}
+{{ with .Resources.GetMatch "cover.*" }}
+  {{ $img = . }}
+{{ else }}
+  {{ with .Params.cover }}{{ with resources.Get . }}{{ $img = . }}{{ end }}{{ end }}
+{{ end }}
+{{ return $img }}
